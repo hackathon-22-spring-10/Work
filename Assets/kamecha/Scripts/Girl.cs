@@ -28,22 +28,6 @@ public class Girl : MonoBehaviour
 
     void girlMove()
     {
-        float horizontalKey = Input.GetAxis("Horizontal");
-        if (horizontalKey > 0)
-        {
-            Debug.Log("a");
-            rb.velocity = new Vector2(speed, 0);
-        }
-        else if (horizontalKey < 0)
-        {
-            Debug.Log("b");
-            rb.velocity = new Vector2(-speed, 0);
-        }
-        else
-        {
-            Debug.Log("c");
-            rb.velocity = Vector2.zero;
-        }
-
+        rb.velocity = new Vector2(speed, 0);
     }
 }
