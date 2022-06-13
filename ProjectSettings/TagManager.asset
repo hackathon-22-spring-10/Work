@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RealPlayer
+  - GhostPlayer
+  - Girl
+  - RealObstacle
+  - GhostObstacle
+  - Stage
   layers:
   - Default
   - TransparentFX
