@@ -17,6 +17,7 @@ public class GirlManager : MonoBehaviour
     void Update()
     {
         hpSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
+        favorabilityRatingSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().favorabilityRating / Girl.maxFavorabilityRating;
         girl.GetComponent<Girl>().girlMove();
     }
 }
