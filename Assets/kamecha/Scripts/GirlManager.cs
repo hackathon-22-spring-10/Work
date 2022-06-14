@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GirlManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject girlPrefab;
     private GameObject girl;
+    [SerializeField]
+    private GameObject hpSlider;
+    [SerializeField]
+    private GameObject favorabilityRatingSlider;
     void Start()
     {
-        girl = Instantiate(girlPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
-        // Debug.Log(girl.hitPoint);
-        Debug.Log(girl.GetComponent<Girl>().hitPoint);
+    }
+    void Update()
+    {
+        hpSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
+        favorabilityRatingSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().favorabilityRating / Girl.maxFavorabilityRating;
+        girl.GetComponent<Girl>().girlMove();
     }
 }
