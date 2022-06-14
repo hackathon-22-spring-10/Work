@@ -14,6 +14,7 @@ public class GhostPlayer : Player
     void Update()
     {
         if (active) Move();
+        else Stop();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
