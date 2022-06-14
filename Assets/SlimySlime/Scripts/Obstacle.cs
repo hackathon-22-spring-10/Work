@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     protected bool attackingGirl = false;
     protected bool isRealObstacle = true;
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if ((collision.CompareTag("RealPlayer") && isRealObstacle) || (collision.CompareTag("GhostPlayer") && !isRealObstacle))
