@@ -131,6 +131,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 896309598539858976, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
+      propertyPath: leftBound
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 896309598539858976, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
+      propertyPath: rightBound
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 896309598539858976, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
       propertyPath: upperBound
       value: 2
       objectReference: {fileID: 0}
@@ -184,6 +192,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
+--- !u!114 &431761795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2509143291576907382, guid: a1f14551c569aef499239345721ed5eb, type: 3}
+  m_PrefabInstance: {fileID: 2509143291268296045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6da0d014b431f4883a3b71bb5ba7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +292,64 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2509143293114802274, guid: a1f14551c569aef499239345721ed5eb, type: 3}
   m_PrefabInstance: {fileID: 2509143291268296045}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1287909726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287909728}
+  - component: {fileID: 1287909727}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1287909727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287909726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9de4fc52cd35943a6e6205f72f89b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realPlayer: {fileID: 1582690620}
+  ghostPlayer: {fileID: 431761795}
+  mode: 0
+--- !u!4 &1287909728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287909726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.0129056, y: 1.0784289, z: -0.12352935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582690620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 896309598539858976, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
+  m_PrefabInstance: {fileID: 289390153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985d75c2700147247ab52db3dbf61d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2509143291268296045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,6 +369,18 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 745261845}
+    - target: {fileID: 2509143291576907382, guid: a1f14551c569aef499239345721ed5eb, type: 3}
+      propertyPath: leftBound
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509143291576907382, guid: a1f14551c569aef499239345721ed5eb, type: 3}
+      propertyPath: rightBound
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509143291576907382, guid: a1f14551c569aef499239345721ed5eb, type: 3}
+      propertyPath: upperBound
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2509143291576907383, guid: a1f14551c569aef499239345721ed5eb, type: 3}
       propertyPath: m_RootOrder
       value: 2

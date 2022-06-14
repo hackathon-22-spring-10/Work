@@ -9,6 +9,7 @@ public class PlayerConfig
     public KeyCode left;
     public KeyCode right;
     public KeyCode action;
+    public KeyCode swap;
 
     public PlayerConfig()
     {
@@ -17,6 +18,7 @@ public class PlayerConfig
         left = KeyCode.A;
         right = KeyCode.D;
         action = KeyCode.Space;
+        swap = KeyCode.F;
     }
      
     

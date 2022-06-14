@@ -58,4 +58,10 @@ public class Player : MonoBehaviour
             }
         }
     }
+    protected void Stop()
+    {
+        rigid.velocity = Vector2.zero;
+        if (direction != MoveDirection.None) preDirection = direction;
+        direction = MoveDirection.None;
+    }
 }
