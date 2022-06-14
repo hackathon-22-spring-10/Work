@@ -20,6 +20,7 @@ public class RealPlayer : Player
     void Update()
     {
         if (active) Move();
+        else Stop();
         ManageAnimation();
     }
 
