@@ -18,6 +18,6 @@ public class GirlManager : MonoBehaviour
     {
         hpSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
         favorabilityRatingSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().favorabilityRating / Girl.maxFavorabilityRating;
-        girl.GetComponent<Girl>().girlMove();
+        girl.GetComponent<Girl>().patternMove(Random.Range(0, 3));
     }
 }
