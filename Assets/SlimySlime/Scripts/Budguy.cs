@@ -5,8 +5,9 @@ using UnityEngine;
 public class Budguy : Obstacle
 {
     [SerializeField]private float moveSpeed;
-    private Rigidbody2D rb;
     private Transform girl;
+    private Rigidbody2D rb;
+
 
     // Start is called before the first frame update
     void Start()
