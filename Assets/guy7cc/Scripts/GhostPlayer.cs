@@ -1,16 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostPlayer : Player
 {
-    private SpriteRenderer sprite;
-
     // Start is called before the first frame update
     public void Start()
     {
         base.Start();
-        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -27,6 +25,5 @@ public class GhostPlayer : Player
         if (Input.GetKey(config.down)) y -= ySpeed;
         if (Input.GetKey(config.jump)) y += ySpeed;
         rigid.velocity = new Vector2(x, y);
-        
     }
 }
