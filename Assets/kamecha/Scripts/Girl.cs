@@ -6,8 +6,8 @@ public class Girl : MonoBehaviour
 {
     public float speed;
     public const float maxHitPoint = 100f;
-    public float hitPoint { get; set; } = maxHitPoint;
-    public float favorabilityRating { get; set; } = 0;
+    public float hitPoint = maxHitPoint;
+    public float favorabilityRating = 0;
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
