@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2509143291576907380}
   - component: {fileID: 2509143291576907377}
   - component: {fileID: 2509143291576907382}
+  - component: {fileID: 7327841463767446766}
   m_Layer: 0
   m_Name: GhostPlayer
   m_TagString: GhostPlayer
@@ -97,6 +98,19 @@ MonoBehaviour:
   active: 0
   xSpeed: 5
   ySpeed: 5
+--- !u!114 &7327841463767446766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509143291576907381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ef248fd3bb8c543ae6715d9fa29757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 2509143293114802274}
 --- !u!1 &2509143293114802272
 GameObject:
   m_ObjectHideFlags: 0
