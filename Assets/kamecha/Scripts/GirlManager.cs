@@ -10,9 +10,12 @@ public class GirlManager : MonoBehaviour
     private GameObject girl;
     private GameObject canvas;
     [SerializeField]
+    //↓これプレハブにする必要なさそう
     private GameObject hpSlider;
     void Start()
     {
+        //Girl
+        girl = Instantiate(girlPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
         //UI
         canvas = new GameObject();
         canvas.name = "canvas";
@@ -24,13 +27,9 @@ public class GirlManager : MonoBehaviour
         hpSlider.AddComponent<Canvas>();
         hpSlider.transform.SetParent(canvas.transform);
         hpSlider.GetComponent<RectTransform>().anchoredPosition = new Vector2(-318f, -201f);
-        hpSlider.GetComponent<Slider>().value = 0.8f;
-        //Girl
-        girl = Instantiate(girlPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
-        Debug.Log(girl.GetComponent<Girl>().hitPoint);
-        Debug.Log(hpSlider.GetComponent<Slider>().value);
     }
     void Update()
     {
+        hpSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
     }
 }
