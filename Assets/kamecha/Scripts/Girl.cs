@@ -6,10 +6,28 @@ public class Girl : MonoBehaviour
 {
     public float speed;
     public const float maxHitPoint = 100f;
-    public float hitPoint { get; set; } = maxHitPoint;
-    public float favorabilityRating { get; set; } = 0;
+    public const float maxFavorabilityRating = 100f;
+    public float hitPoint = maxHitPoint;
+    public float favorabilityRating = 0;
     private Rigidbody2D rb;
     public bool flagTest;
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "RealPlayer":
+            Debug.Log("告白されちゃった");
+            break;
+            case "RealObstacle":
+            Debug.Log("HP下がっちゃった...");
+            break;
+            case "GhostObstacle":
+            Debug.Log("好感度下がっちゃった...");
+            break;
+
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
