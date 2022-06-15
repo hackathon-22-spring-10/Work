@@ -3,30 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RealPlayer : Player
 {
+    private Animator animator;
+
     // Start is called before the first frame update
     public void Start()
     {
         base.Start();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (active) Move();
+        else Stop();
+        ManageAnimation();
     }
 
-    private void Move()
+    private void ManageAnimation()
     {
-        float x = 0;
-        float y = 0;
-        if (Input.GetKey(config.left)) x -= xSpeed;
-        if (Input.GetKey(config.right)) x += xSpeed;
-        if (Input.GetKey(config.down)) y -= ySpeed;
-        if (Input.GetKey(config.jump)) y += ySpeed;
-        rigid.velocity = new Vector2(x, y);
+        animator.SetBool("moving", direction != MoveDirection.None);
+        animator.SetInteger("direction", direction != MoveDirection.None ? (int)direction : (int)preDirection);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
