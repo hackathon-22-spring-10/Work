@@ -9,6 +9,6 @@ public class SpriteSorter : MonoBehaviour
     
     void Update()
     {
-        sprite.sortingOrder = -(int)Mathf.Ceil(transform.position.y * 10000);
+        sprite.sortingOrder = -(int)Mathf.Ceil(transform.position.y * 100);
     }
 }
