@@ -10,7 +10,10 @@ public class Girl : MonoBehaviour
     public float hitPoint = maxHitPoint;
     public float favorabilityRating = 0;
     private Rigidbody2D rb;
-    public bool flagTest;
+    public float upperBound;
+    public float lowerBound;
+    public float leftBound;
+    public float rightBound;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -47,10 +50,6 @@ public class Girl : MonoBehaviour
     void Update()
     {
         // rotate(3.0f, Mathf.PI/2, flagTest);
-        int pattern = (int)Time.time / 3;
-        pattern %= 3;
-        patternMove(pattern);
-        Debug.Log(pattern);
     }
     void right()
     {
@@ -74,17 +73,32 @@ public class Girl : MonoBehaviour
         rb.velocity = new Vector2(vx, vy);
     }
 
+    public void checkDistance(){
+        float x = rb.velocity.x;
+        float y = rb.velocity.y;
+        Debug.Log(transform.position);
+        Vector2 canvasPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
+        if (canvasPosition.y > upperBound) y = Mathf.Min(0, y);
+        if (canvasPosition.y < lowerBound) y = Mathf.Max(0, y);
+        if (canvasPosition.x > rightBound) x = Mathf.Min(0, x);
+        if (canvasPosition.x < leftBound) x = Mathf.Max(0, x);
+        rb.velocity = new Vector2(x, y);
+    }
+
     public void patternMove(int pattern) {
         switch (pattern)
         {
             case 0:
             right();
+            checkDistance();
             break;
             case 1:
             rotate(3.0f, Mathf.PI/2, false);
+            checkDistance();
             break;
             case 2:
             wave(2.0f);
+            checkDistance();
             break;
             default:
             break;
