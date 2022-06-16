@@ -78,10 +78,10 @@ public class Girl : MonoBehaviour
         float y = rb.velocity.y;
         Debug.Log(transform.position);
         Vector2 canvasPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
-        if (canvasPosition.y > upperBound) y = Mathf.Min(0, y);
-        if (canvasPosition.y < lowerBound) y = Mathf.Max(0, y);
-        if (canvasPosition.x > rightBound) x = Mathf.Min(0, x);
-        if (canvasPosition.x < leftBound) x = Mathf.Max(0, x);
+        if (transform.position.y > upperBound) y = Mathf.Min(0, y);
+        if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
+        if (transform.position.x > rightBound) x = Mathf.Min(0, x);
+        if (transform.position.x < leftBound) x = Mathf.Max(0, x);
         rb.velocity = new Vector2(x, y);
     }
 
