@@ -8,7 +8,7 @@ public class Girl : MonoBehaviour
     public const float maxHitPoint = 100f;
     public const float maxFavorabilityRating = 100f;
     public float hitPoint = maxHitPoint;
-    public float favorabilityRating = 0;
+    public float favorabilityRating = maxFavorabilityRating;
     private Rigidbody2D rb;
     public bool flagTest;
 
@@ -17,7 +17,7 @@ public class Girl : MonoBehaviour
         switch (collision.tag)
         {
             case "RealPlayer":
-            Debug.Log("告白されちゃった");
+            // Debug.Log("告白されちゃった");
             break;
             case "RealObstacle":
             hitPoint -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
@@ -25,7 +25,7 @@ public class Girl : MonoBehaviour
             {
                 hitPoint = 0;
             }
-            Debug.Log("HP下がっちゃった...");
+            // Debug.Log("HP下がっちゃった...");
             break;
             case "GhostObstacle":
             favorabilityRating -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
@@ -33,7 +33,7 @@ public class Girl : MonoBehaviour
             {
                 favorabilityRating = 0;
             }
-            Debug.Log("好感度下がっちゃった...");
+            // Debug.Log("好感度下がっちゃった...");
             break;
 
         }
@@ -74,15 +74,27 @@ public class Girl : MonoBehaviour
         rb.velocity = new Vector2(vx, vy);
     }
 
+    public void checkDistance(){
+        float x = rb.velocity.x;
+        float y = rb.velocity.y;
+        // Debug.Log(transform.position);
+        if (transform.position.y > upperBound) y = Mathf.Min(0, y);
+        if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
+        if (transform.position.x > rightBound) x = Mathf.Min(0, x);
+        if (transform.position.x < leftBound) x = Mathf.Max(0, x);
+        rb.velocity = new Vector2(x, y);
+    }
+
     public void patternMove(int pattern) {
         switch (pattern)
         {
             case 0:
             right();
             break;
-            case 1:
-            rotate(3.0f, Mathf.PI/2, false);
-            break;
+            // case 1:
+            // rotate(3.0f, Mathf.PI/2, false);
+            // checkDistance();
+            // break;
             case 2:
             wave(2.0f);
             break;
