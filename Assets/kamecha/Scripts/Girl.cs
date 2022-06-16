@@ -41,6 +41,11 @@ public class Girl : MonoBehaviour
 
         }
     }
+
+    public void getDamage(float damage)
+    {
+        hitPoint -= damage;
+    }
     // Start is called before the first frame update
     void Start()
     {
