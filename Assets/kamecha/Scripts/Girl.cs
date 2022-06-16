@@ -8,7 +8,7 @@ public class Girl : MonoBehaviour
     public const float maxHitPoint = 100f;
     public const float maxFavorabilityRating = 100f;
     public float hitPoint = maxHitPoint;
-    public float favorabilityRating = 0;
+    public float favorabilityRating = maxFavorabilityRating;
     private Rigidbody2D rb;
     public float upperBound;
     public float lowerBound;
@@ -20,7 +20,7 @@ public class Girl : MonoBehaviour
         switch (collision.tag)
         {
             case "RealPlayer":
-            Debug.Log("告白されちゃった");
+            // Debug.Log("告白されちゃった");
             break;
             case "RealObstacle":
             hitPoint -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
@@ -28,7 +28,7 @@ public class Girl : MonoBehaviour
             {
                 hitPoint = 0;
             }
-            Debug.Log("HP下がっちゃった...");
+            // Debug.Log("HP下がっちゃった...");
             break;
             case "GhostObstacle":
             favorabilityRating -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
@@ -36,10 +36,15 @@ public class Girl : MonoBehaviour
             {
                 favorabilityRating = 0;
             }
-            Debug.Log("好感度下がっちゃった...");
+            // Debug.Log("好感度下がっちゃった...");
             break;
 
         }
+    }
+
+    public void getDamage(float damage)
+    {
+        hitPoint -= damage;
     }
     // Start is called before the first frame update
     void Start()
@@ -76,8 +81,7 @@ public class Girl : MonoBehaviour
     public void checkDistance(){
         float x = rb.velocity.x;
         float y = rb.velocity.y;
-        Debug.Log(transform.position);
-        Vector2 canvasPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
+        // Debug.Log(transform.position);
         if (transform.position.y > upperBound) y = Mathf.Min(0, y);
         if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
         if (transform.position.x > rightBound) x = Mathf.Min(0, x);
@@ -92,10 +96,10 @@ public class Girl : MonoBehaviour
             right();
             checkDistance();
             break;
-            case 1:
-            rotate(3.0f, Mathf.PI/2, false);
-            checkDistance();
-            break;
+            // case 1:
+            // rotate(3.0f, Mathf.PI/2, false);
+            // checkDistance();
+            // break;
             case 2:
             wave(2.0f);
             checkDistance();
