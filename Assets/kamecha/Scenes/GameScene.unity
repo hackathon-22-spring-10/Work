@@ -319,11 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896309598539858979, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.47
+      value: -10.24
       objectReference: {fileID: 0}
     - target: {fileID: 896309598539858979, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7
+      value: -1.43
       objectReference: {fileID: 0}
     - target: {fileID: 896309598539858979, guid: 974f8ae7e2746db439054cbafe931d30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.76994973, g: 1, b: 0.3537736, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -971,7 +971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977632466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9131851, y: -0.030000476, z: -10}
+  m_LocalPosition: {x: -2.900096, y: -0.030000476, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1155,7 +1155,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7763578, y: 1}
+    m_SensorSize: {x: 1.7789757, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1172,7 +1172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039971245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.47, y: -0.7, z: -10}
+  m_LocalPosition: {x: -10.24, y: -1.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1477,6 +1477,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7293536699332335322, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
+      propertyPath: leftBound
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293536699332335322, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
+      propertyPath: lowerBound
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293536699332335322, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
+      propertyPath: rightBound
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293536699332335322, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
+      propertyPath: favorabilityRating
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7548575303750177745, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -1499,11 +1515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8569084152276151655, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: -6.01
       objectReference: {fileID: 0}
     - target: {fileID: 8569084152276151655, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 8569084152276151655, guid: edea35ccc9f58584a9334e60b6be0976, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1857,7 +1873,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.7078718, g: 1, b: 0.4764151, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2152,7 +2168,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7763578, y: 1}
+    m_SensorSize: {x: 1.7789757, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
