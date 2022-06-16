@@ -10,7 +10,10 @@ public class Girl : MonoBehaviour
     public float hitPoint = maxHitPoint;
     public float favorabilityRating = maxFavorabilityRating;
     private Rigidbody2D rb;
-    public bool flagTest;
+    public float upperBound;
+    public float lowerBound;
+    public float leftBound;
+    public float rightBound;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -47,10 +50,6 @@ public class Girl : MonoBehaviour
     void Update()
     {
         // rotate(3.0f, Mathf.PI/2, flagTest);
-        int pattern = (int)Time.time / 3;
-        pattern %= 3;
-        patternMove(pattern);
-        Debug.Log(pattern);
     }
     void right()
     {
@@ -90,6 +89,7 @@ public class Girl : MonoBehaviour
         {
             case 0:
             right();
+            checkDistance();
             break;
             // case 1:
             // rotate(3.0f, Mathf.PI/2, false);
@@ -97,6 +97,7 @@ public class Girl : MonoBehaviour
             // break;
             case 2:
             wave(2.0f);
+            checkDistance();
             break;
             default:
             break;
