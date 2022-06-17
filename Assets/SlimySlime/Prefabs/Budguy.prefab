@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 32938187228479572}
   - component: {fileID: 357002649}
   - component: {fileID: 2259504350622968229}
+  - component: {fileID: 2047330509837091473}
   m_Layer: 0
   m_Name: Budguy
   m_TagString: RealObstacle
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 32938187228479573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  col: {fileID: 32938187228479572}
+  sprite: {fileID: 32938187228479574}
   moveSpeed: 3
+  rb: {fileID: 357002649}
+  animator: {fileID: 2047330509837091473}
 --- !u!61 &32938187228479572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,3 +167,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 32938187228479574}
+--- !u!95 &2047330509837091473
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32938187228479573}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
