@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cb13029651ccfc4eb11463ea7b50999
-      internalID: -234291555
+      spriteID: eb4728849f4910f4d894bdb39b785f2c
+      internalID: 575041535
       vertices: []
       indices: 
       edges: []
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723e27b461fd1ac41ab895e95f3e80fb
-      internalID: -1657837187
+      spriteID: 97707fec86b3861498ee8ef621d2a038
+      internalID: -821366286
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbbc92f4e7073e948951fe733d750250
-      internalID: 1192242809
+      spriteID: b319deabcadb1e646954a694bd87bfa6
+      internalID: -1743152522
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5db5918944ad104cbf7aaa742a33bb6
-      internalID: -265845666
+      spriteID: d31b236a51309724ca80c2fd3381f400
+      internalID: -1598911037
       vertices: []
       indices: 
       edges: []
@@ -202,8 +202,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a8e822f913313f48bca95467e85143d
-      internalID: 965574983
+      spriteID: 4908749c432e2794f857ef6ed1e4d431
+      internalID: -1172962066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yankee_attack_5
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 0
+        width: 105
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7825ed5951dbf4449754607a3b1176b
+      internalID: 1162133381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yankee_attack_6
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 105
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a468e928c30dc44698e91a2e657689a
+      internalID: 953107811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yankee_attack_7
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 105
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7d73145399e184990084f80f1ea241
+      internalID: 1502969875
       vertices: []
       indices: 
       edges: []
@@ -219,11 +282,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      yankee_attack_4: 965574983
-      yankee_attack_0: -234291555
-      yankee_attack_2: 1192242809
-      yankee_attack_3: -265845666
-      yankee_attack_1: -1657837187
+      yankee_attack_4: -1172962066
+      yankee_attack_0: 575041535
+      yankee_attack_2: -1743152522
+      yankee_attack_3: -1598911037
+      yankee_attack_7: 1502969875
+      yankee_attack_5: 1162133381
+      yankee_attack_6: 953107811
+      yankee_attack_1: -821366286
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
