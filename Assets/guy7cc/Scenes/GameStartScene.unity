@@ -445,11 +445,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1759913290085191416, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.96
+      value: -4.64
       objectReference: {fileID: 0}
     - target: {fileID: 1759913290085191416, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 1759913290085191416, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -482,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 1759913290085191416, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759913290085191417, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
+      propertyPath: cleared
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1759913290085191417, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
       propertyPath: exitButton
@@ -546,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2276609772933993443, guid: e1fa5ebd39a8a9041b89e10990628d1f, type: 3}
       propertyPath: cleared
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2276609772933993468, guid: e1fa5ebd39a8a9041b89e10990628d1f, type: 3}
       propertyPath: m_Name
