@@ -40,23 +40,6 @@ public class Girl : MonoBehaviour
             case "RealPlayer":
             // Debug.Log("告白されちゃった");
             break;
-            case "RealObstacle":
-            hitPoint -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
-            if (hitPoint < 0)
-            {
-                hitPoint = 0;
-            }
-            // Debug.Log("HP下がっちゃった...");
-            break;
-            case "GhostObstacle":
-            favorability -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
-            if (favorability < 0)
-            {
-                favorability = 0;
-            }
-            // Debug.Log("好感度下がっちゃった...");
-            break;
-
         }
     }
 
