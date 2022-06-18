@@ -6,6 +6,10 @@ public class ObstacleManager : MonoBehaviour
 {
     [SerializeField] private GameObject ghost;
     [SerializeField] private GameObject budguy;
+    [SerializeField] private GameObject ghost2;
+    [SerializeField] private GameObject budguy2;
+    [SerializeField] private GameObject ghost3;
+    [SerializeField] private GameObject budguy3;
     [SerializeField] private GameObject normalObstacle;
 
 
@@ -20,21 +24,64 @@ public class ObstacleManager : MonoBehaviour
         float spawnCooltime;
         while (true)
         {
-            switch ((int)Random.Range(0, 2))
+            if ((Time.time - startTime) <= 20)
             {
-                case 0:
-                    Instantiate(ghost, GetSpawnPoint(0, 360), Quaternion.identity);
-                    break;
-                case 1:
-                    Instantiate(budguy, GetSpawnPoint(180, 360), Quaternion.identity);
-                    break;
+                switch ((int)Random.Range(0, 2))
+                {
+                    case 0:
+                        Instantiate(ghost, GetSpawnPoint(0, 360), Quaternion.identity);
+                        break;
+                    case 1:
+                        Instantiate(budguy, GetSpawnPoint(180, 360), Quaternion.identity);
+                        break;
+
+                }
+            }else if((Time.time - startTime) > 20 && (Time.time - startTime) <= 40)
+            {
+                switch ((int)Random.Range(0, 5))
+                {
+                    case 0:
+                        Instantiate(ghost, GetSpawnPoint(0, 360), Quaternion.identity);
+                        break;
+                    case 1:
+                        Instantiate(budguy, GetSpawnPoint(180, 360), Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(ghost2, GetSpawnPoint(0, 360), Quaternion.identity);
+                        break;
+                    case 4:
+                        Instantiate(budguy2, GetSpawnPoint(180, 360), Quaternion.identity);
+                        break;
+                }
+            }
+            else if ((Time.time - startTime) > 40)
+            {
+                switch ((int)Random.Range(0, 6))
+                {
+                    case 0:
+                        Instantiate(ghost, GetSpawnPoint(0, 360), Quaternion.identity);
+                        break;
+                    case 1:
+                        Instantiate(budguy, GetSpawnPoint(180, 360), Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(ghost2, GetSpawnPoint(0, 360), Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(budguy2, GetSpawnPoint(180, 360), Quaternion.identity);
+                        break;
+                    case 4:
+                        Instantiate(ghost3, GetSpawnPoint(0, 360), Quaternion.identity);
+                        break;
+                    case 5:
+                        Instantiate(budguy3, GetSpawnPoint(180, 360), Quaternion.identity);
+                        break;
+                }
 
             }
-
             //ゲーム開始から2分経つとクールタイムが最小になる
             spawnCooltime = Mathf.Max(2, 4 - ((Time.time - startTime) / 60));
 
-            Debug.Log(spawnCooltime);
             yield return new WaitForSeconds(spawnCooltime);
         }
     }

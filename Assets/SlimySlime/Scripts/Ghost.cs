@@ -8,11 +8,14 @@ public class Ghost : Obstacle
     private Transform girlTF;
     [SerializeField]private Rigidbody2D rb;
     [SerializeField]private ParticleSystem particle;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         girlTF = GameObject.FindWithTag("Girl").transform;
+        audioSource = FindObjectOfType<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -41,6 +44,8 @@ public class Ghost : Obstacle
         {
             particle.Play();
             girl.hitPoint -= damage;
+            audioSource.PlayOneShot(attackSound);
+
             yield return new WaitForSeconds(1f);
         }
     }
@@ -48,6 +53,7 @@ public class Ghost : Obstacle
     public override IEnumerator Killed()
     {
         moveSpeed = 0;
+        audioSource.PlayOneShot(deathSound);
         return base.Killed();
     }
 }

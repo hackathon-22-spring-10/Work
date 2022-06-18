@@ -9,6 +9,7 @@ public class Budguy : Obstacle
     [SerializeField]private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     private Coroutine moveCoroutine;
+    private AudioSource audioSource;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class Budguy : Obstacle
     {
         girlTF = GameObject.FindWithTag("Girl").transform;
         moveCoroutine = StartCoroutine(Move());
+        audioSource = FindObjectOfType<AudioSource>();
     }
 
 
@@ -48,6 +50,7 @@ public class Budguy : Obstacle
         {
             animator.SetTrigger("AttackTrigger");
             yield return new WaitForSeconds(0.1f);
+            audioSource.PlayOneShot(attackSound);
             girl.hitPoint -= damage;
             yield return new WaitForSeconds(1f);
         }
@@ -63,8 +66,9 @@ public class Budguy : Obstacle
             StopCoroutine(attackCoroutine);
         }
 
+        audioSource.PlayOneShot(deathSound);
         rb.velocity = (transform.position - girlTF.position).normalized * 10;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         rb.velocity = Vector2.zero;
 
         while (sprite.color.a >= 0)
