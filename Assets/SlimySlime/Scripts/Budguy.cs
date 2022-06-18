@@ -6,16 +6,17 @@ public class Budguy : Obstacle
 {
     [SerializeField]private float moveSpeed;
     private Transform girlTF;
-    [SerializeField]private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     private Coroutine moveCoroutine;
     private AudioSource audioSource;
+    private Animator girlAnimator;
 
 
     // Start is called before the first frame update
     void Start()
     {
         girlTF = GameObject.FindWithTag("Girl").transform;
+        girlAnimator = girlTF.GetComponent<Animator>();
         moveCoroutine = StartCoroutine(Move());
         audioSource = FindObjectOfType<AudioSource>();
     }
@@ -52,6 +53,7 @@ public class Budguy : Obstacle
             yield return new WaitForSeconds(0.1f);
             audioSource.PlayOneShot(attackSound, 0.3f);
             girl.hitPoint -= damage;
+            girlAnimator.SetTrigger("isAttacked");
             yield return new WaitForSeconds(1f);
         }
     }

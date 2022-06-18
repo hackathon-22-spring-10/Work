@@ -9,6 +9,8 @@ public class Obstacle : MonoBehaviour
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] protected AudioClip attackSound;
     [SerializeField] protected AudioClip deathSound;
+    [SerializeField] protected Rigidbody2D rb;
+
 
     //protected bool attackingGirl = false;
     protected Coroutine attackCoroutine;

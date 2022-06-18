@@ -6,7 +6,7 @@ public class Ghost : Obstacle
 {
     [SerializeField]private float moveSpeed;
     private Transform girlTF;
-    [SerializeField]private Rigidbody2D rb;
+    private Animator girlAnimator;
     [SerializeField]private ParticleSystem particle;
     private AudioSource audioSource;
 
@@ -14,6 +14,7 @@ public class Ghost : Obstacle
     void Start()
     {
         girlTF = GameObject.FindWithTag("Girl").transform;
+        girlAnimator = girlTF.GetComponent<Animator>();
         audioSource = FindObjectOfType<AudioSource>();
 
     }
@@ -44,6 +45,7 @@ public class Ghost : Obstacle
         {
             particle.Play();
             girl.hitPoint -= damage;
+            girlAnimator.SetTrigger("isAttacked");
             audioSource.PlayOneShot(attackSound, 0.3f);
 
             yield return new WaitForSeconds(1f);
