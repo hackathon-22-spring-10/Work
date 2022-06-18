@@ -19,8 +19,9 @@ public class ObstacleManager : MonoBehaviour
         while (true)
         {
             Instantiate(ghost, GetSpawnPoint(0,360), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
             Instantiate(budguy, GetSpawnPoint(180, 360), Quaternion.identity);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
