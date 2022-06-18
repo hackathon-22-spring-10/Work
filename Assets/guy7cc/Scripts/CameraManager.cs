@@ -19,6 +19,8 @@ public class CameraManager : MonoBehaviour
     private ChromaticAberration chroma;
     private Vignette vig;
 
+    private bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +35,15 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManageCamera();
-        ManagePostProcessing();
+        if (!dead)
+        {
+            ManageCamera();
+            ManagePostProcessing();
+        }
+        else
+        {
+            ManageDeadPostProcessing();
+        }
     }
 
     private void ManageCamera()
@@ -62,5 +71,21 @@ public class CameraManager : MonoBehaviour
         grading.contrast.Interp(0, 100, 4 * s * (1 - s));
         chroma.intensity.Interp(0, 1, 1.77777f * s * (1.5f - s));
         vig.intensity.Interp(0, 0.48f, s);
+    }
+
+    private void ManageDeadPostProcessing()
+    {
+        bloom.intensity.Interp(0, 13.3f, 1);
+        grain.intensity.Interp(0, 1, 1);
+        grading.hueShift.Interp(0, -180, 1);
+        grading.saturation.Interp(0, 40, 1);
+        grading.brightness.Interp(0, -78, 1);
+        grading.contrast.Interp(0, 80, 1);
+        vig.intensity.Interp(0, 0.544f, 1);
+    }
+
+    public void SetDeadEffect()
+    {
+        dead = true;
     }
 }
