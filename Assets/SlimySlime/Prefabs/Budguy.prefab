@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f5f48137b0d3b439eed2c506d608ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 3
   col: {fileID: 32938187228479572}
   sprite: {fileID: 32938187228479574}
   attackSound: {fileID: 8300000, guid: 801d88b114a7594478a6cb078c2f4dc8, type: 3}

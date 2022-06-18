@@ -50,7 +50,7 @@ public class Budguy : Obstacle
         {
             animator.SetTrigger("AttackTrigger");
             yield return new WaitForSeconds(0.1f);
-            audioSource.PlayOneShot(attackSound);
+            audioSource.PlayOneShot(attackSound, 0.3f);
             girl.hitPoint -= damage;
             yield return new WaitForSeconds(1f);
         }
@@ -66,7 +66,7 @@ public class Budguy : Obstacle
             StopCoroutine(attackCoroutine);
         }
 
-        audioSource.PlayOneShot(deathSound);
+        audioSource.PlayOneShot(deathSound, 0.3f);
         rb.velocity = (transform.position - girlTF.position).normalized * 10;
         yield return new WaitForSeconds(0.3f);
         rb.velocity = Vector2.zero;

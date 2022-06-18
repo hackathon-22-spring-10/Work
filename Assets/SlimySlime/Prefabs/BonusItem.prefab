@@ -105,8 +105,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b8bca0c6d29a60c43b16f64da9eade55, type: 3}
   - {fileID: 21300000, guid: 1a41e4afb3a231f4486437fd844d8c56, type: 3}
   col: {fileID: 4739920307373711476}
-  bonusPoint: 10
+  bonusPoint: 5
   particle: {fileID: 3640276634709374225}
+  appearSound: {fileID: 8300000, guid: f3623b42ec55fd045a4f8d443a3537bc, type: 3}
+  getSound: {fileID: 8300000, guid: 1177fbeb08e427c4a9d195f2a55bb3ad, type: 3}
 --- !u!61 &4739920307373711476
 BoxCollider2D:
   m_ObjectHideFlags: 0
