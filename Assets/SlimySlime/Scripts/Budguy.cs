@@ -20,26 +20,29 @@ public class Budguy : Obstacle
     void Update()
     {
         //—‚ÌŽq‚ð’Ç‚¢‚©‚¯‚é
-        if (Vector2.Distance(transform.position, girlTF.position) > 0.3f)
+        if (Vector2.Distance(transform.position, girlTF.position) > 0.4f)
         {
             rb.position += moveSpeed * Time.deltaTime * (Vector2)(girlTF.position - this.transform.position).normalized;
         }
 
         if (girlTF.position.x < transform.position.x)
         {
-            sprite.flipX = true;
+            sprite.flipX = false;
         }
         else
         {
-            sprite.flipX = false;
+            sprite.flipX = true;
         }
     }
 
-    public override IEnumerator AttackGirl()
+    public override IEnumerator AttackGirl(Girl girl)
     {
         //yield return new WaitForSeconds(0.1f);
         while (true)
         {
+            animator.SetTrigger("AttackTrigger");
+            yield return new WaitForSeconds(0.1f);
+            girl.getDamage(damage);
             yield return new WaitForSeconds(1f);
         }
     }
