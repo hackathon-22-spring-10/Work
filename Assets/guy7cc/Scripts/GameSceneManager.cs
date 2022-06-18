@@ -55,7 +55,7 @@ public class GameSceneManager : MonoBehaviour
         GameResult result = resultObject.GetComponent<GameResult>();
         Girl girl = GameObject.Find("Girl").GetComponent<Girl>();
         result.hp = girl.hitPoint;
-        result.fav = girl.favorabilityRating;
+        result.fav = girl.favorability;
 
         DontDestroyOnLoad(resultObject);
         SceneManager.LoadScene("GameEndScene");

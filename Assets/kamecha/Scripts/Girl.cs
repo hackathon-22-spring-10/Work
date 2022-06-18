@@ -6,9 +6,9 @@ public class Girl : MonoBehaviour
 {
     public float speed;
     public const float maxHitPoint = 100f;
-    public const float maxFavorabilityRating = 100f;
+    public const float maxFavorability = 100f;
     public float hitPoint = maxHitPoint;
-    public float favorabilityRating = maxFavorabilityRating;
+    public float favorability = maxFavorability;
     private Rigidbody2D rb;
     public float upperBound;
     public float lowerBound;
@@ -31,10 +31,10 @@ public class Girl : MonoBehaviour
             // Debug.Log("HP下がっちゃった...");
             break;
             case "GhostObstacle":
-            favorabilityRating -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
-            if (favorabilityRating < 0)
+            favorability -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
+            if (favorability < 0)
             {
-                favorabilityRating = 0;
+                favorability = 0;
             }
             // Debug.Log("好感度下がっちゃった...");
             break;
