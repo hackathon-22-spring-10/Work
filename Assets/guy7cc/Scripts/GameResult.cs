@@ -7,7 +7,7 @@ public class GameResult : MonoBehaviour
     public float hp;
     public float fav;
 
-    public float necessaryFav;
+    private const float necessaryFav = 99.99999999f;
 
     public Result GetResult()
     {

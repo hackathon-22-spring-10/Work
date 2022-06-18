@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EasingFunc
 {
+    public static float EaseOutQuint(float t)
+    {
+        t = Mathf.Max(0, Mathf.Min(1, t));
+        return 1 - Mathf.Pow(1 - t, 5);
+    }
     public static float EaseInElastic(float t)
     {
         if (t <= 0) return 0;
