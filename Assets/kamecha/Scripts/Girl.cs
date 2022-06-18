@@ -66,18 +66,19 @@ public class Girl : MonoBehaviour
     // inversionFlag == true -> 負の方向に回転
     public void rotate(float radius, float theta, bool inversionFlag)
     {
-        float vx = radius * Mathf.Sin(Time.time * speed + theta);
-        vx = -vx;
-        float vy = radius * Mathf.Cos(Time.time * speed + theta);
-        vy = (inversionFlag) ? -vy : vy;
-        rb.velocity = new Vector2(vx, vy);
+        float inversion = (inversionFlag) ? -1f : 1f;
+        float vx = -radius * Mathf.Sin(inversion*(Time.time + theta));
+        float vy = radius * Mathf.Cos(inversion*(Time.time + theta));
+        Vector2 direction = new Vector2(vx, vy).normalized;
+        rb.velocity = speed * direction;
     }
 
     public void wave(float radius) 
     {
-        float vx = speed;
-        float vy = radius * Mathf.Sin(Time.time * speed);
-        rb.velocity = new Vector2(vx, vy);
+        float vx = 1;
+        float vy = radius * Mathf.Cos(Time.time);
+        Vector2 direction = new Vector2(vx, vy).normalized;
+        rb.velocity = speed * direction;
     }
 
     public void moveTo(Vector2 destination)
@@ -88,13 +89,14 @@ public class Girl : MonoBehaviour
     }
 
     public void checkDistance(){
-        float x = rb.velocity.x;
-        float y = rb.velocity.y;
-        if (transform.position.y > upperBound) y = Mathf.Min(0, y);
-        if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
-        if (transform.position.x > rightBound) x = Mathf.Min(0, x);
-        if (transform.position.x < leftBound) x = Mathf.Max(0, x);
-        rb.velocity = new Vector2(x, y);
+        float vx = rb.velocity.x;
+        float vy = rb.velocity.y;
+        if (transform.position.y > upperBound) vy = Mathf.Min(0, vy);
+        if (transform.position.y < lowerBound) vy = Mathf.Max(0, vy);
+        if (transform.position.x > rightBound) vx = Mathf.Min(0, vx);
+        if (transform.position.x < leftBound) vx = Mathf.Max(0, vx);
+        Vector2 direction = new Vector2(vx, vy).normalized;
+        rb.velocity = speed * direction;
     }
 
     public void patternMove(int pattern) {
