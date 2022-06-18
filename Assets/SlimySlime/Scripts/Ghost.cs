@@ -40,7 +40,7 @@ public class Ghost : Obstacle
         while (true)
         {
             particle.Play();
-            girl.getDamage(damage);
+            girl.hitPoint -= damage;
             yield return new WaitForSeconds(1f);
         }
     }
