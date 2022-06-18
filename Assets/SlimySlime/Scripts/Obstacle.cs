@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    [SerializeField] protected float damage;
     [SerializeField] private Collider2D col;
     [SerializeField] protected SpriteRenderer sprite;
 
@@ -14,15 +14,13 @@ public class Obstacle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(1);
         if ((collision.CompareTag("RealPlayer") && this.CompareTag("RealObstacle")) || (collision.CompareTag("GhostPlayer") && this.CompareTag("GhostObstacle")))
         {
             StartCoroutine(Killed());
         }
         else if (collision.CompareTag("Girl"))
         {
-            Debug.Log(2);
-            attackCoroutine = StartCoroutine(AttackGirl());
+            attackCoroutine = StartCoroutine(AttackGirl(collision.GetComponent<Girl>()));
         }
     }
 
@@ -39,7 +37,7 @@ public class Obstacle : MonoBehaviour
         return damage;
     }
 
-    public virtual IEnumerator AttackGirl()
+    public virtual IEnumerator AttackGirl(Girl girl)
     {
         //è¡ñ≈Ç∑ÇÈèàóù
 

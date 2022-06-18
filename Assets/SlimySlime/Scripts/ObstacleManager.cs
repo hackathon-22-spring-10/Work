@@ -14,14 +14,28 @@ public class ObstacleManager : MonoBehaviour
         StartCoroutine(GenerateObstacles());
     }
 
-    private IEnumerator GenerateObstacles()
+    public IEnumerator GenerateObstacles()
     {
+        float startTime = Time.time;
+        float spawnCooltime;
         while (true)
         {
-            Instantiate(ghost, GetSpawnPoint(0,360), Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
-            Instantiate(budguy, GetSpawnPoint(180, 360), Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
+            switch ((int)Random.Range(0, 2))
+            {
+                case 0:
+                    Instantiate(ghost, GetSpawnPoint(0, 360), Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(budguy, GetSpawnPoint(180, 360), Quaternion.identity);
+                    break;
+
+            }
+
+            //ゲーム開始から2分経つとクールタイムが最小になる
+            spawnCooltime = Mathf.Max(2, 4 - ((Time.time - startTime) / 60));
+
+            Debug.Log(spawnCooltime);
+            yield return new WaitForSeconds(spawnCooltime);
         }
     }
 

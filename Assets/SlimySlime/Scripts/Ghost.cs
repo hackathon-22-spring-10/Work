@@ -34,12 +34,13 @@ public class Ghost : Obstacle
         }
     }
 
-    public override IEnumerator AttackGirl()
+    public override IEnumerator AttackGirl(Girl girl)
     {
         //yield return new WaitForSeconds(0.1f);
         while (true)
         {
             particle.Play();
+            girl.getDamage(damage);
             yield return new WaitForSeconds(1f);
         }
     }

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994a4aee4d88b994ca49eea8507aa1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 5
   col: {fileID: 7314203896803345694}
   sprite: {fileID: 7314203896803345693}
   moveSpeed: 3
