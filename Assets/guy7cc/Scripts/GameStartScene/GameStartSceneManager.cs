@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameStartSceneManager : MonoBehaviour
@@ -15,6 +16,10 @@ public class GameStartSceneManager : MonoBehaviour
     private GameObject bubbleSmall1;
     private GameObject bubbleSmall2;
     private GameObject black;
+    private GameObject resultObj;
+
+    public AudioClip click;
+    private AudioSource audio;
 
     [SerializeField]
     private bool cleared;
@@ -31,14 +36,19 @@ public class GameStartSceneManager : MonoBehaviour
         bubbleSmall1 = GameObject.Find("BubbleSmall1");
         bubbleSmall2 = GameObject.Find("BubbleSmall2");
         black = GameObject.Find("Black");
+        audio = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+        resultObj = GameObject.Find("GameResult");
     }
 
     void Start()
     {
         //get the last scene object here, and get info
         //when game cleared and came back to this scene, cleared = true
-
-
+        if(resultObj != null)
+        {
+            GameResult result = resultObj.GetComponent<GameResult>();
+            cleared = result.GetResult() == GameResult.Result.ConfessionSuccess;
+        }
 
         //init
         bubbleGirl.SetActive(!cleared);
@@ -47,32 +57,43 @@ public class GameStartSceneManager : MonoBehaviour
         pressAnyKeyImage.SetActive(!pressedAnyKey);
         startButton.SetActive(pressedAnyKey);
         exitButton.SetActive(pressedAnyKey);
-        black.SetActive(false);
+        black.SetActive(true);
+
+        StartCoroutine(BlackInRoutine(() => black.SetActive(false)));
+
     }
 
     void Update()
     {
-        if (!pressedAnyKey && Input.anyKey)
+        if (!pressedAnyKey && Input.anyKeyDown)
         {
             pressedAnyKey = true;
             pressAnyKeyImage.SetActive(!pressedAnyKey);
             startButton.SetActive(pressedAnyKey);
             exitButton.SetActive(pressedAnyKey);
+            audio.PlayOneShot(click);
         }
     }
 
     public void OnStartButtonClick()
     {
+        audio.PlayOneShot(click);
         titlePlayer.GetComponent<TitlePlayerBehaviour>().StartMoving();
         StartCoroutine(BlackOutRoutine(() =>
         {
+            if(resultObj != null)
+            {
+                Destroy(resultObj);
+            }
             //next scene
+            SceneManager.LoadScene("GameScene");
         }));
     }
 
 
     public void OnExitButtonClick()
     {
+        audio.PlayOneShot(click);
         StartCoroutine(BubbleExitRoutine());
         StartCoroutine(BlackOutRoutine(() => 
         {
@@ -93,6 +114,19 @@ public class GameStartSceneManager : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         bubbleGirl.GetComponent<BubbleBehaviour>().StartEnding();
         bubblePlayer.GetComponent<BubbleBehaviour>().StartEnding();
+        yield break;
+    }
+
+    public IEnumerator BlackInRoutine(Action lastAction)
+    {
+        Image sprite = black.GetComponent<Image>();
+        black.SetActive(true);
+        for (float t = 0; t <= 2f; t += Time.deltaTime)
+        {
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1f - t / 2f);
+            yield return null;
+        }
+        lastAction();
         yield break;
     }
 
