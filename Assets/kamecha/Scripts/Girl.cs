@@ -7,8 +7,26 @@ public class Girl : MonoBehaviour
     public float speed;
     public const float maxHitPoint = 100f;
     public const float maxFavorability = 100f;
-    public float hitPoint = maxHitPoint;
-    public float favorability = maxFavorability;
+    public float hitPoint
+    {
+        get { return hitPoint; }
+        set
+        {
+            hitPoint += value;
+            if (hitPoint < 0) hitPoint = 0;
+            if (hitPoint > maxHitPoint) hitPoint = maxHitPoint;
+        }
+    }
+    public float favorability
+    {
+        get { return favorability; }
+        set
+        {
+            favorability += value;
+            if (favorability < 0) favorability = 0;
+            if (favorability > maxFavorability) favorability = maxFavorability;
+        }
+    }
     private Rigidbody2D rb;
     public float upperBound;
     public float lowerBound;
@@ -42,14 +60,11 @@ public class Girl : MonoBehaviour
         }
     }
 
-    public void getDamage(float damage)
-    {
-        hitPoint -= damage;
-    }
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hitPoint = maxHitPoint;
     }
 
     void Update()
