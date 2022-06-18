@@ -7,24 +7,32 @@ public class Girl : MonoBehaviour
     public float speed;
     public const float maxHitPoint = 100f;
     public const float maxFavorability = 100f;
+    private float _hitPoint;
     public float hitPoint
     {
-        get { return hitPoint; }
+        get
+        {
+            return _hitPoint;
+        }
         set
         {
-            hitPoint += value;
-            if (hitPoint < 0) hitPoint = 0;
-            if (hitPoint > maxHitPoint) hitPoint = maxHitPoint;
+            _hitPoint += value;
+            if (_hitPoint < 0) _hitPoint = 0;
+            if (_hitPoint > maxHitPoint) _hitPoint = maxHitPoint;
         }
     }
+    private float _favorability;
     public float favorability
     {
-        get { return favorability; }
+        get 
+        {
+            return _favorability;
+        }
         set
         {
-            favorability += value;
-            if (favorability < 0) favorability = 0;
-            if (favorability > maxFavorability) favorability = maxFavorability;
+            _favorability += value;
+            if (_favorability < 0) _favorability = 0;
+            if (_favorability > maxFavorability) _favorability = maxFavorability;
         }
     }
     private Rigidbody2D rb;
