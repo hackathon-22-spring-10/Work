@@ -16,7 +16,7 @@ public class Girl : MonoBehaviour
         }
         set
         {
-            _hitPoint += value;
+            _hitPoint = value;
             if (_hitPoint < 0) _hitPoint = 0;
             if (_hitPoint > maxHitPoint) _hitPoint = maxHitPoint;
         }
@@ -30,7 +30,7 @@ public class Girl : MonoBehaviour
         }
         set
         {
-            _favorability += value;
+            _favorability = value;
             if (_favorability < 0) _favorability = 0;
             if (_favorability > maxFavorability) _favorability = maxFavorability;
         }
