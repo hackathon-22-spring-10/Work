@@ -5,7 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     [SerializeField] protected float damage;
-    [SerializeField] private Collider2D col;
+    [SerializeField] protected Collider2D col;
     [SerializeField] protected SpriteRenderer sprite;
 
     //protected bool attackingGirl = false;
@@ -54,7 +54,7 @@ public class Obstacle : MonoBehaviour
         }
         while (sprite.color.a >= 0)
         {
-            sprite.color = new Color(1, 1, 1, sprite.color.a - 0.5f * Time.deltaTime);
+            sprite.color = new Color(1, 1, 1, sprite.color.a - (3f * Time.deltaTime));
             yield return new WaitForEndOfFrame();
         }
         Destroy(gameObject);

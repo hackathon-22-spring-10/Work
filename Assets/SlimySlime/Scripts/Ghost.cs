@@ -44,4 +44,10 @@ public class Ghost : Obstacle
             yield return new WaitForSeconds(1f);
         }
     }
+
+    public override IEnumerator Killed()
+    {
+        moveSpeed = 0;
+        return base.Killed();
+    }
 }
