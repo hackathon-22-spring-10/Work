@@ -7,7 +7,9 @@ public class TitlePlayerBehaviour : MonoBehaviour
 {
     public Sprite naturalFace;
     public Sprite watchingFace;
+    public Sprite closedEyeFace;
     public Sprite naturalFaceGirl;
+    public Sprite closedEyeFaceGirl;
     private ButtonBehaviour exitButton;
     private AudioSource audio;
 
@@ -18,6 +20,8 @@ public class TitlePlayerBehaviour : MonoBehaviour
     public bool cleared = false;  //ÉNÉäÉAå„ÇÕèóÇÃéqÇ…Ç»ÇÈ
 
     private Vector2 initPos;
+    private float timeUntilBlink = 1f;
+
     private bool moving = false;
     private float movingTime = 0;
     private float nextFootStepTime = 0.5f;
@@ -38,29 +42,26 @@ public class TitlePlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeUntilBlink -= Time.deltaTime;
         if (!cleared)
         {
             transform.localScale = new Vector2(50, 50);
-            if (exitButton.MouseOn)
-            {
-                spriteRenderer.sprite = watchingFace;
-            }
-            else
-            {
-                spriteRenderer.sprite = naturalFace;
-            }
+            if (exitButton.MouseOn) spriteRenderer.sprite = watchingFace;
+            else spriteRenderer.sprite = naturalFace;
+            if(timeUntilBlink < 0f) spriteRenderer.sprite = closedEyeFace;
         }
         else
         {
             transform.localScale = new Vector2(40, 40);
-            if (exitButton.MouseOn)
-            {
-                spriteRenderer.sprite = naturalFaceGirl;
-            }
-            else
-            {
-                spriteRenderer.sprite = naturalFaceGirl;
-            }
+            if (exitButton.MouseOn) spriteRenderer.sprite = naturalFaceGirl;
+            else spriteRenderer.sprite = naturalFaceGirl;
+            if (timeUntilBlink < 0f) spriteRenderer.sprite = closedEyeFaceGirl;
+        }
+
+        if(timeUntilBlink < -0.1f)
+        {
+            if(Random.Range(0f, 1f) >= 0.2f) timeUntilBlink = Random.Range(2f, 8f);
+            else timeUntilBlink = Random.Range(0.25f, 0.5f);
         }
 
         if (moving)

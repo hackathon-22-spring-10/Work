@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
-  confessionFailure: {fileID: 0}
+  confessionFailure: {fileID: 21300000, guid: 5bf999229cc976246956669af358eaec, type: 3}
   confessionSuccess: {fileID: 21300000, guid: 72826e48f22f2f24fb5cdc4cbed3d9b1, type: 3}
 --- !u!1 &1395364804
 GameObject:
@@ -424,6 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395364806}
   - component: {fileID: 1395364805}
+  - component: {fileID: 1395364807}
   m_Layer: 0
   m_Name: AudioSource
   m_TagString: Untagged
@@ -542,6 +543,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1395364807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395364804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb8b20b2e879a64ea17aec41da455f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: {fileID: 8300000, guid: e985cd02e5dd06c4b99417489f1831cd, type: 3}
+  confessionFailure: {fileID: 8300000, guid: c0e638cb807a2414393b8a2fe2716c62, type: 3}
+  confessionSuccess: {fileID: 8300000, guid: 01bc1647323cc2e4b992739b59ac6d4e, type: 3}
 --- !u!1 &1632039720
 GameObject:
   m_ObjectHideFlags: 0
