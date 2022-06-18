@@ -9,18 +9,23 @@ public class TitlePlayerBehaviour : MonoBehaviour
     public Sprite watchingFace;
     public Sprite naturalFaceGirl;
     private ButtonBehaviour exitButton;
+    private AudioSource audio;
 
     private SpriteRenderer spriteRenderer;
+
+    public AudioClip footstep;
 
     public bool cleared = false;  //ÉNÉäÉAå„ÇÕèóÇÃéqÇ…Ç»ÇÈ
 
     private Vector2 initPos;
     private bool moving = false;
     private float movingTime = 0;
+    private float nextFootStepTime = 0.5f;
 
     private void Awake()
     {
         exitButton = GameObject.Find("ExitButton").GetComponent<ButtonBehaviour>();
+        audio = GameObject.Find("AudioSource").GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -63,6 +68,11 @@ public class TitlePlayerBehaviour : MonoBehaviour
             movingTime += Time.deltaTime;
             Vector2 cyc = EasingFunc.Cycloid(0.75f, movingTime * 4 * Mathf.PI);
             transform.position = initPos + new Vector2(cyc.x / 1.5f, cyc.y / 2f);
+            if(movingTime >= nextFootStepTime)
+            {
+                nextFootStepTime += 0.5f;
+                audio.PlayOneShot(footstep, Mathf.Exp(-movingTime));
+            }
         }
 
         

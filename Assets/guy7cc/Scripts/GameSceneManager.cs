@@ -12,6 +12,9 @@ public class GameSceneManager : MonoBehaviour
     private GameObject dead;
     private GameObject clear;
     private CameraManager cam;
+    private GameSceneAudioManager audio;
+
+    public AudioClip clearSound;
 
     private bool isEnding = false;
 
@@ -25,6 +28,7 @@ public class GameSceneManager : MonoBehaviour
         dead = GameObject.Find("Dead");
         clear = GameObject.Find("Clear");
         cam = GameObject.Find("Main Camera").GetComponent<CameraManager>();
+        audio = GameObject.Find("AudioSource").GetComponent<GameSceneAudioManager>();
     }
 
     // Start is called before the first frame update
@@ -52,6 +56,7 @@ public class GameSceneManager : MonoBehaviour
     private IEnumerator DeadRoutine()
     {
         playerManager.Inactivate();
+        audio.SetDead();
         dead.SetActive(true);
         cam.SetDeadEffect();
         Time.timeScale = 0.00001f;
@@ -66,10 +71,10 @@ public class GameSceneManager : MonoBehaviour
 
     private IEnumerator GameEndRoutine()
     {
+        audio.SetClear();
         clear.SetActive(true);
-        Time.timeScale = 0.2f;
-        //scene transition effects here
-        for (float t = 0; t <= 0.4f; t += Time.deltaTime)
+        Time.timeScale = 0.00001f;
+        for (float t = 0; t <= 0.000035f; t += Time.deltaTime)
         {
             yield return null;
         }

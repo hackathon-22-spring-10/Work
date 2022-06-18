@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (active)
         {
-            if (Input.GetKeyDown(config.swap))
+            if (config.GetKeyDown(PlayerConfig.InputType.Swap))
             {
                 switch (mode)
                 {
