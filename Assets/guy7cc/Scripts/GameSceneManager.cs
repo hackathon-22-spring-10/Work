@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +8,10 @@ public class GameSceneManager : MonoBehaviour
 
     private GameObject girlObj;
     private Girl girl;
+    private PlayerManager playerManager;
+    private GameObject dead;
+    private GameObject clear;
+    private CameraManager cam;
 
     private bool isEnding = false;
 
@@ -18,12 +21,17 @@ public class GameSceneManager : MonoBehaviour
     {
         girlObj = GameObject.Find("Girl");
         girl = girlObj.GetComponent<Girl>();
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        dead = GameObject.Find("Dead");
+        clear = GameObject.Find("Clear");
+        cam = GameObject.Find("Main Camera").GetComponent<CameraManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        dead.SetActive(false);
+        clear.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,21 +42,43 @@ public class GameSceneManager : MonoBehaviour
             isEnding = true;
             StartCoroutine(GameEndRoutine());
         }
+        if(!isEnding && girl.hitPoint <= 0)
+        {
+            isEnding = true;
+            StartCoroutine(DeadRoutine());
+        }
+    }
+
+    private IEnumerator DeadRoutine()
+    {
+        playerManager.Inactivate();
+        dead.SetActive(true);
+        cam.SetDeadEffect();
+        Time.timeScale = 0.00001f;
+        for (float t = 0; t <= 0.00005f; t += Time.deltaTime)
+        {
+            yield return null;
+        }
+        Time.timeScale = 1f;
+        OnGameEnd();
+        yield break;
     }
 
     private IEnumerator GameEndRoutine()
     {
+        clear.SetActive(true);
+        Time.timeScale = 0.2f;
         //scene transition effects here
-        for (float t = 0; t <= 2f; t += Time.deltaTime)
+        for (float t = 0; t <= 0.4f; t += Time.deltaTime)
         {
             yield return null;
         }
-
-        OnSceneChange();
+        Time.timeScale = 1f;
+        OnGameEnd();
         yield break;
     }
 
-    private void OnSceneChange()
+    private void OnGameEnd()
     {
         GameObject resultObject = Instantiate(gameResultPrefab);
         resultObject.name = "GameResult";

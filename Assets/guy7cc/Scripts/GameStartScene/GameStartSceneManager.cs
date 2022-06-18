@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class GameStartSceneManager : MonoBehaviour
 {
     private GameObject titlePlayer;
+    private GameObject playerShadow;
+    private GameObject girlShadow;
     private GameObject pressAnyKeyImage;
     private GameObject startButton;
     private GameObject exitButton;
@@ -28,6 +30,8 @@ public class GameStartSceneManager : MonoBehaviour
     private void Awake()
     {
         titlePlayer = GameObject.Find("TitlePlayer");
+        playerShadow = GameObject.Find("PlayerShadow");
+        girlShadow = GameObject.Find("GirlShadow");
         pressAnyKeyImage = GameObject.Find("PressAnyKey");
         startButton = GameObject.Find("StartButton");
         exitButton = GameObject.Find("ExitButton");
@@ -53,6 +57,8 @@ public class GameStartSceneManager : MonoBehaviour
         //init
         bubbleGirl.SetActive(!cleared);
         bubblePlayer.SetActive(cleared);
+        playerShadow.SetActive(!cleared);
+        girlShadow.SetActive(cleared);
         titlePlayer.GetComponent<TitlePlayerBehaviour>().cleared = cleared;
         pressAnyKeyImage.SetActive(!pressedAnyKey);
         startButton.SetActive(pressedAnyKey);

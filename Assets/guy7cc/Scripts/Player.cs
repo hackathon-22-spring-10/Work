@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     {
         float x = 0;
         float y = 0;
+        const float cx = 0.8f;
+        const float cy = 0.8f;
         if (Input.GetKey(config.left)) x -= xSpeed;
         if (Input.GetKey(config.right)) x += xSpeed;
         if (Input.GetKey(config.down)) y -= ySpeed;
@@ -43,6 +45,11 @@ public class Player : MonoBehaviour
         if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
         if (transform.position.x > rightBound) x = Mathf.Min(0, x);
         if (transform.position.x < leftBound) x = Mathf.Max(0, x);
+        if(x != 0 && y != 0)
+        {
+            x *= cx;
+            y *= cy;
+        }
         rigid.velocity = new Vector2(x, y);
 
         if (x > 0) direction = MoveDirection.Right;
@@ -64,4 +71,5 @@ public class Player : MonoBehaviour
         if (direction != MoveDirection.None) preDirection = direction;
         direction = MoveDirection.None;
     }
+
 }

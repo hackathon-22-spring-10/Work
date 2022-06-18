@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -12,6 +13,8 @@ public class PlayerManager : MonoBehaviour
     public GhostPlayer ghostPlayer;
 
     public Mode mode;
+
+    private bool active = true;
 
     private float swapTime;
     public float SwapRate { 
@@ -39,33 +42,46 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(config.swap))
+        if (active)
         {
-            switch (mode) 
+            if (Input.GetKeyDown(config.swap))
+            {
+                switch (mode)
+                {
+                    case Mode.Real:
+                        if (swapTime <= 0f) mode = Mode.Ghost;
+                        break;
+                    case Mode.Ghost:
+                        if (swapTime >= swapTimeMax) mode = Mode.Real;
+                        break;
+                }
+            }
+            switch (mode)
             {
                 case Mode.Real:
-                    if(swapTime <= 0f) mode = Mode.Ghost;
+                    realPlayer.active = true;
+                    ghostPlayer.active = false;
+                    if (swapTime > 0) swapTime = Mathf.Max(swapTime - Time.deltaTime, 0);
                     break;
                 case Mode.Ghost:
-                    if(swapTime >= swapTimeMax) mode = Mode.Real;
+                    realPlayer.active = false;
+                    ghostPlayer.active = true;
+                    if (swapTime < swapTimeMax) swapTime = Mathf.Min(swapTime + Time.deltaTime, swapTimeMax);
                     break;
             }
-        }
-        switch (mode)
-        {
-            case Mode.Real:
-                realPlayer.active = true;
-                ghostPlayer.active = false;
-                if (swapTime > 0) swapTime = Mathf.Max(swapTime - Time.deltaTime, 0);
-                break;
-            case Mode.Ghost:
-                realPlayer.active = false;
-                ghostPlayer.active = true;
-                if (swapTime < swapTimeMax) swapTime = Mathf.Min(swapTime + Time.deltaTime, swapTimeMax);
-                break;
-        }
 
-        ghostPlayer.SetAlpha(SwapRate * SwapRate);
+            ghostPlayer.SetAlpha(SwapRate * SwapRate);
+        }
+        else
+        {
+            realPlayer.active = false;
+            ghostPlayer.active = false;
+        }
+    }
+
+    public void Inactivate()
+    {
+        active = false;
     }
 
 
