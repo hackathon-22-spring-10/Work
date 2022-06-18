@@ -18,8 +18,5 @@ public class GirlManager : MonoBehaviour
     {
         hpBar.GetComponent<BarBehaviour>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
         favorabilityBar.GetComponent<BarBehaviour>().value = girl.GetComponent<Girl>().favorability / Girl.maxFavorability;
-        int pattern = (int)Time.time / 3;
-        pattern %= 3;
-        girl.GetComponent<Girl>().patternMove(pattern);
     }
 }
