@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class BonusItemManager : MonoBehaviour
 {
     [SerializeField] GameObject bonusItem;
+    [SerializeField] private float cooltime;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class BonusItemManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(cooltime);
             Vector2 pos = Camera.main.ViewportToWorldPoint(new Vector2(Random.value, 0));
             pos = new Vector2(pos.x, Random.Range(1f, 5f) * -1);
             Instantiate(bonusItem, pos, Quaternion.identity);

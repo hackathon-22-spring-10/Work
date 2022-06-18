@@ -44,7 +44,7 @@ public class Ghost : Obstacle
         {
             particle.Play();
             girl.hitPoint -= damage;
-            audioSource.PlayOneShot(attackSound);
+            audioSource.PlayOneShot(attackSound, 0.3f);
 
             yield return new WaitForSeconds(1f);
         }
@@ -53,7 +53,7 @@ public class Ghost : Obstacle
     public override IEnumerator Killed()
     {
         moveSpeed = 0;
-        audioSource.PlayOneShot(deathSound);
+        audioSource.PlayOneShot(deathSound, 0.3f);
         return base.Killed();
     }
 }

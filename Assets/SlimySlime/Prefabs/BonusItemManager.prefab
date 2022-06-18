@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusItem: {fileID: 4739920307373711475, guid: 5eeccb72c2cf23a4c9e80ef9595b2eca, type: 3}
+  cooltime: 3

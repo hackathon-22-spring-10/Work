@@ -79,8 +79,8 @@ public class ObstacleManager : MonoBehaviour
                 }
 
             }
-            //ゲーム開始から2分経つとクールタイムが最小になる
-            spawnCooltime = Mathf.Max(2, 4 - ((Time.time - startTime) / 60));
+            //ゲーム開始から1分経つとクールタイムが最小になる
+            spawnCooltime = Mathf.Max(0.7f, 1.7f - ((Time.time - startTime) / 60));
 
             yield return new WaitForSeconds(spawnCooltime);
         }
