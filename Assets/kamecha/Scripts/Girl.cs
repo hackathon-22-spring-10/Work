@@ -78,6 +78,13 @@ public class Girl : MonoBehaviour
         rb.velocity = new Vector2(vx, vy);
     }
 
+    public void moveTo(Vector2 destination)
+    {
+        Vector2 nowPosition = transform.position;
+        Vector2 direction = (destination - nowPosition).normalized;
+        rb.velocity = speed * direction;
+    }
+
     public void checkDistance(){
         float x = rb.velocity.x;
         float y = rb.velocity.y;
