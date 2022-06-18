@@ -8,7 +8,7 @@ public class GirlManager : MonoBehaviour
     [SerializeField]
     private GameObject girl;
     [SerializeField]
-    private GameObject hpSlider;
+    private GameObject hpBar;
     [SerializeField]
     private GameObject favorabilityRatingSlider;
     void Start()
@@ -16,7 +16,7 @@ public class GirlManager : MonoBehaviour
     }
     void Update()
     {
-        hpSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
+        hpBar.GetComponent<BarBehaviour>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
         favorabilityRatingSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().favorabilityRating / Girl.maxFavorabilityRating;
         Debug.Log(favorabilityRatingSlider.GetComponent<Slider>().value);
         int pattern = (int)Time.time / 3;
