@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameEndSceneManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameEndSceneManager : MonoBehaviour
     private GameObject gameClearBubble;
 
     private float time = 0;
+    private bool keyPressed = false;
 
     private void Awake()
     {
@@ -31,7 +33,7 @@ public class GameEndSceneManager : MonoBehaviour
     void Start()
     {
         Image image = backGround.GetComponent<Image>();
-        switch (result.GetComponent<GameResult>().GetResult())
+        switch (result != null ? result.GetComponent<GameResult>().GetResult() : GameResult.Result.GameOver)
         {
             case GameResult.Result.GameOver:
                 image.sprite = gameOver;
@@ -57,11 +59,13 @@ public class GameEndSceneManager : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if(time >= 5f && Input.anyKeyDown)
+        if(!keyPressed && time >= 5f && Input.anyKeyDown)
         {
+            keyPressed = true;
             StartCoroutine(BlackOutRoutine(() =>
             {
                 //next Scene
+                SceneManager.LoadScene("GameStartScene");
             }));
         }
     }

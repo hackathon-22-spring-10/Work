@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class ButtonBehaviour : MonoBehaviour
 {
+    
+
     [SerializeField]
     private RectTransform image;
 
     [SerializeField]
     private bool mouseOn;
+
+    public AudioClip shortClick;
+    private AudioSource audio;
 
     public bool MouseOn
     {
@@ -20,6 +25,11 @@ public class ButtonBehaviour : MonoBehaviour
     }
 
     private float time;
+
+    private void Awake()
+    {
+        audio = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +56,7 @@ public class ButtonBehaviour : MonoBehaviour
     public void OnPointerEnter()
     {
         mouseOn = true;
+        audio.PlayOneShot(shortClick);
     }
 
     public void OnPointerExit()
