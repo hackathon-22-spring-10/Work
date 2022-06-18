@@ -8,25 +8,43 @@ public class Girl : MonoBehaviour
     public const float maxHitPoint = 100f;
     public const float maxFavorabilityRating = 100f;
     public float hitPoint = maxHitPoint;
-    public float favorabilityRating = 0;
+    public float favorabilityRating = maxFavorabilityRating;
     private Rigidbody2D rb;
-    public bool flagTest;
+    public float upperBound;
+    public float lowerBound;
+    public float leftBound;
+    public float rightBound;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
         {
             case "RealPlayer":
-            Debug.Log("告白されちゃった");
+            // Debug.Log("告白されちゃった");
             break;
             case "RealObstacle":
-            Debug.Log("HP下がっちゃった...");
+            hitPoint -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
+            if (hitPoint < 0)
+            {
+                hitPoint = 0;
+            }
+            // Debug.Log("HP下がっちゃった...");
             break;
             case "GhostObstacle":
-            Debug.Log("好感度下がっちゃった...");
+            favorabilityRating -= collision.gameObject.GetComponent<Obstacle>().GetObstacleDamage();
+            if (favorabilityRating < 0)
+            {
+                favorabilityRating = 0;
+            }
+            // Debug.Log("好感度下がっちゃった...");
             break;
 
         }
+    }
+
+    public void getDamage(float damage)
+    {
+        hitPoint -= damage;
     }
     // Start is called before the first frame update
     void Start()
@@ -37,10 +55,6 @@ public class Girl : MonoBehaviour
     void Update()
     {
         // rotate(3.0f, Mathf.PI/2, flagTest);
-        int pattern = (int)Time.time / 3;
-        pattern %= 3;
-        patternMove(pattern);
-        Debug.Log(pattern);
     }
     void right()
     {
@@ -64,17 +78,31 @@ public class Girl : MonoBehaviour
         rb.velocity = new Vector2(vx, vy);
     }
 
+    public void checkDistance(){
+        float x = rb.velocity.x;
+        float y = rb.velocity.y;
+        // Debug.Log(transform.position);
+        if (transform.position.y > upperBound) y = Mathf.Min(0, y);
+        if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
+        if (transform.position.x > rightBound) x = Mathf.Min(0, x);
+        if (transform.position.x < leftBound) x = Mathf.Max(0, x);
+        rb.velocity = new Vector2(x, y);
+    }
+
     public void patternMove(int pattern) {
         switch (pattern)
         {
             case 0:
             right();
+            checkDistance();
             break;
-            case 1:
-            rotate(3.0f, Mathf.PI/2, false);
-            break;
+            // case 1:
+            // rotate(3.0f, Mathf.PI/2, false);
+            // checkDistance();
+            // break;
             case 2:
             wave(2.0f);
+            checkDistance();
             break;
             default:
             break;

@@ -18,6 +18,9 @@ public class GirlManager : MonoBehaviour
     {
         hpSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().hitPoint / Girl.maxHitPoint;
         favorabilityRatingSlider.GetComponent<Slider>().value = girl.GetComponent<Girl>().favorabilityRating / Girl.maxFavorabilityRating;
-        girl.GetComponent<Girl>().patternMove(Random.Range(0, 3));
+        Debug.Log(favorabilityRatingSlider.GetComponent<Slider>().value);
+        int pattern = (int)Time.time / 3;
+        pattern %= 3;
+        girl.GetComponent<Girl>().patternMove(pattern);
     }
 }
