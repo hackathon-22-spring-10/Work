@@ -104,6 +104,8 @@ MonoBehaviour:
   damage: 5
   col: {fileID: 32938187228479572}
   sprite: {fileID: 32938187228479574}
+  attackSound: {fileID: 8300000, guid: 801d88b114a7594478a6cb078c2f4dc8, type: 3}
+  deathSound: {fileID: 8300000, guid: 203957d6e5cb50a4aa38ee458c74ae7a, type: 3}
   moveSpeed: 3
   rb: {fileID: 357002649}
   animator: {fileID: 2047330509837091473}

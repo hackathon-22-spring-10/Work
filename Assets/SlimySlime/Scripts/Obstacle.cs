@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] protected Collider2D col;
     [SerializeField] protected SpriteRenderer sprite;
+    [SerializeField] protected AudioClip attackSound;
+    [SerializeField] protected AudioClip deathSound;
 
     //protected bool attackingGirl = false;
     protected Coroutine attackCoroutine;

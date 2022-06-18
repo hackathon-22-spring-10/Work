@@ -152,6 +152,8 @@ MonoBehaviour:
   damage: 5
   col: {fileID: 7314203896803345694}
   sprite: {fileID: 7314203896803345693}
+  attackSound: {fileID: 8300000, guid: fa4dc990c38ee2d439b319005b02d11b, type: 3}
+  deathSound: {fileID: 8300000, guid: 66695f11f4a23c64d9c1b11476843d67, type: 3}
   moveSpeed: 3
   rb: {fileID: 445065277}
   particle: {fileID: 4414915462098843856}

@@ -46,4 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghost: {fileID: 7314203896803345695, guid: b96e65d2f3595cd409d941c4ed131a31, type: 3}
   budguy: {fileID: 32938187228479573, guid: f2d58c482774d2142829face03ef5990, type: 3}
+  ghost2: {fileID: 4638604662981400483, guid: 7ec70bb0012eafe4688239b0d659d7e3, type: 3}
+  budguy2: {fileID: 524474304613071074, guid: 20ba57ab01e60c84f88f4872fc6dd663, type: 3}
+  ghost3: {fileID: 8144792431653181708, guid: 9af365490a61e1b49b04400bc28f0cdb, type: 3}
+  budguy3: {fileID: 5937611441555475786, guid: d70ab3cd8f563b247a0bb002aae8ce4f, type: 3}
   normalObstacle: {fileID: 0}
