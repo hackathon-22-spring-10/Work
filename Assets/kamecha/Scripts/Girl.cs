@@ -90,7 +90,6 @@ public class Girl : MonoBehaviour
     public void checkDistance(){
         float x = rb.velocity.x;
         float y = rb.velocity.y;
-        // Debug.Log(transform.position);
         if (transform.position.y > upperBound) y = Mathf.Min(0, y);
         if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
         if (transform.position.x > rightBound) x = Mathf.Min(0, x);
@@ -102,13 +101,10 @@ public class Girl : MonoBehaviour
         switch (pattern)
         {
             case 0:
+            case 1:
             right();
             checkDistance();
             break;
-            // case 1:
-            // rotate(3.0f, Mathf.PI/2, false);
-            // checkDistance();
-            // break;
             case 2:
             wave(2.0f);
             checkDistance();
