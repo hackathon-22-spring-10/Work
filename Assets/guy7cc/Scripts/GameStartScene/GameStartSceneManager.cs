@@ -11,6 +11,7 @@ public class GameStartSceneManager : MonoBehaviour
     private GameObject playerShadow;
     private GameObject girlShadow;
     private GameObject pressAnyKeyImage;
+    private GameObject logo;
     private GameObject startButton;
     private GameObject exitButton;
     private GameObject bubbleGirl;
@@ -33,6 +34,7 @@ public class GameStartSceneManager : MonoBehaviour
         playerShadow = GameObject.Find("PlayerShadow");
         girlShadow = GameObject.Find("GirlShadow");
         pressAnyKeyImage = GameObject.Find("PressAnyKey");
+        logo = GameObject.Find("Logo");
         startButton = GameObject.Find("StartButton");
         exitButton = GameObject.Find("ExitButton");
         bubbleGirl = GameObject.Find("BubbleGirl");
@@ -75,6 +77,7 @@ public class GameStartSceneManager : MonoBehaviour
         {
             pressedAnyKey = true;
             pressAnyKeyImage.SetActive(!pressedAnyKey);
+            logo.SetActive(!pressedAnyKey);
             startButton.SetActive(pressedAnyKey);
             exitButton.SetActive(pressedAnyKey);
             audio.PlayOneShot(click);
