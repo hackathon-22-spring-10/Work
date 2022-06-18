@@ -42,7 +42,7 @@ public class Budguy : Obstacle
         {
             animator.SetTrigger("AttackTrigger");
             yield return new WaitForSeconds(0.1f);
-            girl.getDamage(damage);
+            girl.hitPoint -= damage;
             yield return new WaitForSeconds(1f);
         }
     }
