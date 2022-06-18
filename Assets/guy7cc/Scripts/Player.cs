@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
         float y = 0;
         const float cx = 0.8f;
         const float cy = 0.8f;
-        if (Input.GetKey(config.left)) x -= xSpeed;
-        if (Input.GetKey(config.right)) x += xSpeed;
-        if (Input.GetKey(config.down)) y -= ySpeed;
-        if (Input.GetKey(config.jump)) y += ySpeed;
+        if (config.GetKey(PlayerConfig.InputType.Left)) x -= xSpeed;
+        if (config.GetKey(PlayerConfig.InputType.Right)) x += xSpeed;
+        if (config.GetKey(PlayerConfig.InputType.Down)) y -= ySpeed;
+        if (config.GetKey(PlayerConfig.InputType.Up)) y += ySpeed;
         if (transform.position.y > upperBound) y = Mathf.Min(0, y);
         if (transform.position.y < lowerBound) y = Mathf.Max(0, y);
         if (transform.position.x > rightBound) x = Mathf.Min(0, x);

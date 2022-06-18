@@ -1218,6 +1218,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1298947076}
   - component: {fileID: 1298947075}
+  - component: {fileID: 1298947078}
+  - component: {fileID: 1298947079}
+  - component: {fileID: 1298947080}
+  - component: {fileID: 1298947081}
   m_Layer: 0
   m_Name: AudioSource
   m_TagString: Untagged
@@ -1235,7 +1239,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 61e0d62e7a514e2438ace18f4f38bc30, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1336,6 +1340,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!169 &1298947078
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298947074}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.026830377
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!164 &1298947079
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298947074}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 100
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
+--- !u!170 &1298947080
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298947074}
+  m_Enabled: 1
+  m_DistortionLevel: 0.5
+--- !u!114 &1298947081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298947074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc03da02541913c4d9f016d37cf31ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clear: {fileID: 8300000, guid: d424353309b54a1458d5187f7a73a8be, type: 3}
+  dead: {fileID: 0}
 --- !u!1 &1467729050 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7731308041646140917, guid: f6748f7a954b6e745b1e1c47f72bbac1, type: 3}
@@ -1561,6 +1636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameResultPrefab: {fileID: 1511428416787101269, guid: 2ce3b635e00fec744a978dd7f2e9a2c6, type: 3}
+  clearSound: {fileID: 0}
 --- !u!1 &2087704687
 GameObject:
   m_ObjectHideFlags: 0

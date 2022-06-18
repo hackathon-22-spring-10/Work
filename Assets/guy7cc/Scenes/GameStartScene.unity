@@ -881,6 +881,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1759913290085191417, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
+      propertyPath: footstep
+      value: 
+      objectReference: {fileID: 8300000, guid: 37f84c54ec9021d4a88308dd94c1261b, type: 3}
+    - target: {fileID: 1759913290085191417, guid: eb3bdcd18275754468d7b49571a263b5, type: 3}
       propertyPath: exitButton
       value: 
       objectReference: {fileID: 1395314849}
@@ -951,7 +955,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ab87391924ba21446baedd33e03aa681, type: 3}
     - target: {fileID: 2276609772933993443, guid: e1fa5ebd39a8a9041b89e10990628d1f, type: 3}
       propertyPath: cleared
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2276609772933993468, guid: e1fa5ebd39a8a9041b89e10990628d1f, type: 3}
       propertyPath: m_Name
