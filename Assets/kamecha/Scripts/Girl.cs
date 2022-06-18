@@ -54,7 +54,9 @@ public class Girl : MonoBehaviour
 
     void Update()
     {
-        // rotate(3.0f, Mathf.PI/2, flagTest);
+        int pattern = (int)Time.time / 3;
+        pattern %= 3;
+        patternMove(pattern);
     }
     void right()
     {
